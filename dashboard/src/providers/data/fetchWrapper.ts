@@ -1,6 +1,6 @@
 import { GraphQLFormattedError } from "graphql";
 
-type Error = {
+export type Error = {
     message: string | undefined;
     statusCode: string;
 }

@@ -1,10 +1,12 @@
 import { GitHubBanner, Refine, WelcomePage } from "@refinedev/core";
 import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
-
 import { useNotificationProvider } from "@refinedev/antd";
 import "@refinedev/antd/dist/reset.css";
-
+import {
+  dataProvider,
+  liveProvider,
+} from "./providers"
 import routerBindings, {
   DocumentTitleHandler,
   UnsavedChangesNotifier,
@@ -22,6 +24,9 @@ function App() {
               <Refine
                 notificationProvider={useNotificationProvider}
                 routerProvider={routerBindings}
+                dataProvider={dataProvider}
+                liveProvider={liveProvider}
+                //authProvider={authProvider}
                 options={{
                   syncWithLocation: true,
                   warnWhenUnsavedChanges: true,
