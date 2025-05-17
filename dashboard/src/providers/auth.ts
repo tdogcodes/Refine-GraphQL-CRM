@@ -7,7 +7,7 @@ export const authCredentials = {
     password: "demodemo",
 }
 
-export const authProvider = {
+export const authProvider : AuthProvider = {
 
     login: async ({ email }: { email: string }) => {
         try{
@@ -38,8 +38,11 @@ export const authProvider = {
                 redirectTo: "/",
             }
         } catch(e){
-            // if the login fails, we throw an error
-            const error = e as Error
+            // if the login fails, return an error response
+            return {
+                success: false,
+                error: e instanceof Error ? e : new Error(String(e)),
+            };
         }
     },
 

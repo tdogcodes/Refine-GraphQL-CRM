@@ -4,6 +4,7 @@ import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 import { useNotificationProvider } from "@refinedev/antd";
 import "@refinedev/antd/dist/reset.css";
 import {
+  authProvider,
   dataProvider,
   liveProvider,
 } from "./providers"
@@ -26,7 +27,7 @@ function App() {
                 routerProvider={routerBindings}
                 dataProvider={dataProvider}
                 liveProvider={liveProvider}
-                //authProvider={authProvider}
+                authProvider={authProvider}
                 options={{
                   syncWithLocation: true,
                   warnWhenUnsavedChanges: true,
