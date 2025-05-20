@@ -3,7 +3,7 @@ import { API_URL, dataProvider } from "./data";
 
 //demo credintials to test the auth
 export const authCredentials = {
-    email: "micheal.scott@dundermifflin.com",
+    email: "michael.scott@dundermifflin.com",
     password: "demodemo",
 }
 
@@ -38,10 +38,20 @@ export const authProvider : AuthProvider = {
                 redirectTo: "/",
             }
         } catch(e){
-            // if the login fails, return an error response
+            console.error("Login error:", e); // See what the error actually is
+
+            let errorMessage = "Unknown error";
+            if (e instanceof Error) {
+                errorMessage = e.message;
+            } else if (typeof e === "object" && e !== null && "message" in e) {
+                errorMessage = (e as any).message;
+            } else {
+                errorMessage = JSON.stringify(e);
+            }
+
             return {
                 success: false,
-                error: e instanceof Error ? e : new Error(String(e)),
+                error: new Error(errorMessage),
             };
         }
     },
