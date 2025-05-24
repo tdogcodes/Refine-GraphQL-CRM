@@ -2,7 +2,7 @@ import { Popover, Button } from "antd";
 import CustomAvatar from "../custom-avatar";
 import { useGetIdentity } from "@refinedev/core";
 import type { User } from "@/;graphql/schema.types";
-import { Text }from "../text";
+import { Text } from "../text";
 import SettingOutlined from "@ant-design/icons";
 import { useState } from "react";
 import { AccountSettings } from "./account-settings";
@@ -12,14 +12,14 @@ const CurrentUser = () => {
   const { data: user } = useGetIdentity<User>();
 
   const content = (
-    <div style={{
-      display: "flex",
-      flexDirection: "column",
-    }}>
-      <Text
-        strong
-        style={{ padding: "12px 20px"}}>
-          {user?.name}
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <Text strong style={{ padding: "12px 20px" }}>
+        {user?.name}
       </Text>
       <div
         style={{
@@ -31,17 +31,18 @@ const CurrentUser = () => {
         }}
       >
         <Button
-          style={{textAlign: "left"}}
+          style={{ textAlign: "left" }}
           icon={<SettingOutlined />}
           type="text"
           onClick={() => {
             setIsOpen(true);
-          }}>
-            Account Settings
+          }}
+        >
+          Account Settings
         </Button>
       </div>
     </div>
-  )
+  );
 
   return (
     <>
@@ -51,17 +52,20 @@ const CurrentUser = () => {
         style={{ padding: 0, zIndex: 999 }}
         content={content}
       >
-        <CustomAvatar 
+        <CustomAvatar
           name={user?.name}
           src={user?.avatarUrl}
           size="default"
-          style={{cursor: "pointer"}} />
+          style={{ cursor: "pointer" }}
+        />
       </Popover>
-      { user && <AccountSettings
-        opened={isOpen}
-        setOpened={setIsOpen}
-        userId={user?.id}
-      /> }
+      {user && (
+        <AccountSettings
+          opened={isOpen}
+          setOpened={setIsOpen}
+          userId={user?.id}
+        />
+      )}
     </>
   );
 };

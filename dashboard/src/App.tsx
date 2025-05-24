@@ -1,7 +1,4 @@
-import {
-  Authenticated,
-  Refine,
-} from "@refinedev/core";
+import { Authenticated, Refine } from "@refinedev/core";
 import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 import { useNotificationProvider } from "@refinedev/antd";
@@ -54,9 +51,10 @@ function App() {
                         <Outlet />
                       </Layout>
                     </Authenticated>
-                  }>
-                    <Route index element={<Home />} />
-                  </Route>
+                  }
+                >
+                  <Route index element={<Home />} />
+                </Route>
               </Routes>
               <RefineKbar />
               <UnsavedChangesNotifier />
