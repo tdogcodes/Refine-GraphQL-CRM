@@ -1,7 +1,7 @@
-import { Avatar as AntdAvatar, Avatar } from 'antd'
+import { Avatar as AntdAvatar, AvatarProps} from 'antd'
 
 type Props = AvatarProps & {
-    name: string;
+    name?: string;
     style?: React.CSSProperties;
     [key: string]: any;
 }
@@ -15,7 +15,9 @@ const CustomAvatar = ({ name, style, ...rest } : Props) => {
             display: 'flex',
             alignItems: 'center',
             border: 'none',
+            ...style,
         }}
+        {...rest}
     >
         {name}
     </AntdAvatar>

@@ -1,23 +1,26 @@
-import { Popover, Button } from 'antd'
-import CustomAvatar from '../custom-avatar'
-import { useGetIdentity } from '@refinedev/core'
-import type { User } from '@/graphql/schema.types'
+import { Popover, Button } from "antd";
+import CustomAvatar from "../custom-avatar";
+import { useGetIdentity } from "@refinedev/core";
+import type { User } from "@/;graphql/schema.types";
 
 const CurrentUser = () => {
-
-  const { data : user }  = useGetIdentity<User>()
+  const { data: user } = useGetIdentity<User>();
 
   return (
     <>
-        <Popover
-        placement='bottomRight'
+      <Popover
+        placement="bottomRight"
         trigger="click"
-        style={{padding: 0, zIndex: 999
-        }}>
-          <CustomAvatar name='TS'/>
-        </Popover>
+        style={{ padding: 0, zIndex: 999 }}
+      >
+        <CustomAvatar 
+          name={user?.name}
+          src={user?.avatarUrl}
+          size="default"
+          style={{cursor: "pointer"}} />
+      </Popover>
     </>
-  )
-}
+  );
+};
 
-export default CurrentUser
+export default CurrentUser;
