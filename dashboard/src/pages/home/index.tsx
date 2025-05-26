@@ -10,7 +10,7 @@ import { Col, Row } from "antd";
 
 export const Home = () => {
   const { data, isLoading } = useCustom<DashboardTotalCountsQuery>({
-    url: "/dashboard",
+    url: "",
     method: "get",
     meta: {
       gqlQuery: DASHBOARD_TOTAL_COUNTS_QUERY,
