@@ -20,6 +20,12 @@ const DashboardTotalCountCard = ({
     data: totalCountVariants[resource].data,
     xField: "index",
     yField: "value",
+    stack: false,
+    height: 60,
+    width: 300,
+    autoFit: true,
+    tooltip: false,
+    colorField: primaryColor
 }
 
   return (
