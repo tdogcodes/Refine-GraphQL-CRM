@@ -15,7 +15,7 @@ import {
 import { getDefaultFilter, useGo } from "@refinedev/core";
 import { Input, Space, Table } from "antd/lib";
 
-const CompanyList = ({children}: React.PropsWithChildren) => {
+const CompanyList = ({ children }: React.PropsWithChildren) => {
   const go = useGo();
   const { tableProps, filters } = useTable({
     resource: "companies",
