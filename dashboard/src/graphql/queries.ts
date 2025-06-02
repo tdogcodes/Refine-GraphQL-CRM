@@ -249,3 +249,11 @@ export const TASK_STAGES_SELECT_QUERY = gql`
     }
   }
 `;  
+
+export const UPDATE_TASK_STAGE_MUTATION = gql`
+  mutation UpdateTaskStage($input: UpdateOneTaskInput!) {
+    updateOneTask(input: $input) {
+      id
+    }
+  }
+`;
